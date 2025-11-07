@@ -43,4 +43,3 @@ A modern, feature-rich blogging platform built with Django and Bootstrap. Write 
 
 - Django Documentation
 - Bootstrap Team
-- Claude AI for the design
