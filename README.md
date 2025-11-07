@@ -32,9 +32,9 @@ A modern, feature-rich blogging platform built with Django and Bootstrap. Write 
 
 <img width="1227" height="742" alt="Ekran Resmi 2025-11-07 16 10 45" src="https://github.com/user-attachments/assets/ef2f9197-e455-428f-b83a-3bfdb064bb74" />
 
-<img width="1227" height="686" alt="Ekran Resmi 2025-11-07 16 11 10" src="https://github.com/user-attachments/assets/dd002e03-6cad-40fd-9c72-9e42900cd6a3" />
-
 <img width="1227" height="686" alt="Ekran Resmi 2025-11-07 16 10 57" src="https://github.com/user-attachments/assets/98afc61a-5952-4cd9-8115-ab5d581e51df" />
+
+<img width="1227" height="686" alt="Ekran Resmi 2025-11-07 16 11 10" src="https://github.com/user-attachments/assets/dd002e03-6cad-40fd-9c72-9e42900cd6a3" />
 
 
 # 🙏 Acknowledgments
