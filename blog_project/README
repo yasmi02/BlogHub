@@ -1,0 +1,300 @@
+# BlogHub - Django Blogging Platform
+
+A full-featured blogging platform built with Django, featuring user authentication, Markdown support, image uploads, tagging, comments, and likes.
+
+## Features
+
+### Core Features
+- ✅ User registration, login, and authentication
+- ✅ Create, edit, and delete blog posts
+- ✅ Markdown support for rich text formatting
+- ✅ Image uploads for post covers and user avatars
+- ✅ Tag system for organizing posts
+- ✅ Like and comment system
+- ✅ User profiles with bio and statistics
+- ✅ Search functionality
+- ✅ Pagination for posts
+- ✅ Responsive Bootstrap UI
+
+### User Features
+- User registration with email validation
+- Customizable user profiles (bio, avatar, website, location)
+- View user posts and liked posts
+- Edit own posts and comments
+- Delete own posts and comments
+
+### Post Features
+- Markdown editor with preview
+- Cover image uploads
+- Multiple tags per post
+- Like/unlike posts
+- Comment on posts
+- Search posts by title, content, or tags
+- Filter posts by tags
+
+## Technology Stack
+
+- **Framework**: Django 5.0
+- **Frontend**: Bootstrap 5, Bootstrap Icons
+- **Markdown**: django-markdownx
+- **Tags**: django-taggit
+- **Forms**: django-crispy-forms
+- **Image Processing**: Pillow
+
+## Installation
+
+### Prerequisites
+- Python 3.8 or higher
+- pip (Python package manager)
+
+### Setup Instructions
+
+1. **Clone or download the project**
+   ```bash
+   cd blog_project
+   ```
+
+2. **Create a virtual environment** (recommended)
+   ```bash
+   python -m venv venv
+
+   # On Windows
+   venv\Scripts\activate
+
+   # On macOS/Linux
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run migrations**
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+5. **Create a superuser** (admin account)
+   ```bash
+   python manage.py createsuperuser
+   ```
+   Follow the prompts to set username, email, and password.
+
+6. **Create media directory**
+   ```bash
+   mkdir media
+   ```
+
+7. **Run the development server**
+   ```bash
+   python manage.py runserver
+   ```
+
+8. **Access the application**
+   - Homepage: http://127.0.0.1:8000/
+   - Admin panel: http://127.0.0.1:8000/admin/
+
+## Project Structure
+
+```
+blog_project/
+├── blog/                      # Main blog app
+│   ├── models.py             # Post and Comment models
+│   ├── views.py              # Blog views
+│   ├── forms.py              # Post and Comment forms
+│   ├── urls.py               # Blog URL patterns
+│   ├── admin.py              # Admin configuration
+│   └── templates/blog/       # Blog templates
+├── accounts/                  # User management app
+│   ├── models.py             # UserProfile model
+│   ├── views.py              # Auth views
+│   ├── forms.py              # Registration and profile forms
+│   ├── urls.py               # Auth URL patterns
+│   └── templates/accounts/   # Auth templates
+├── blog_project/             # Project settings
+│   ├── settings.py           # Django settings
+│   ├── urls.py               # Main URL configuration
+│   └── wsgi.py               # WSGI configuration
+├── templates/                # Shared templates
+│   └── base.html             # Base template
+├── media/                    # User uploads
+├── static/                   # Static files
+├── manage.py                 # Django management script
+└── requirements.txt          # Python dependencies
+```
+
+## Usage Guide
+
+### Creating Posts
+
+1. Register an account or log in
+2. Click "Write Post" in the navigation bar
+3. Fill in the title, content (using Markdown), upload an image, and add tags
+4. Click "Create Post" to publish
+
+### Markdown Formatting
+
+Use these Markdown features in your posts:
+
+```markdown
+# Heading 1
+## Heading 2
+### Heading 3
+
+**Bold text**
+*Italic text*
+
+[Link text](https://example.com)
+![Image alt text](image-url.jpg)
+
+- Bullet list item
+- Another item
+
+1. Numbered list
+2. Another item
+
+`inline code`
+
+\`\`\`python
+# Code block
+def hello():
+    print("Hello, World!")
+\`\`\`
+```
+
+### User Profiles
+
+- View any user's profile by clicking their username
+- Edit your own profile from the dropdown menu
+- Add a bio, avatar, website, and location
+- See your post statistics and liked posts
+
+### Interacting with Posts
+
+- **Like**: Click the heart button on any post
+- **Comment**: Scroll to the bottom of a post and submit a comment
+- **Share**: Copy the post URL from your browser
+- **Edit**: Click "Edit" on your own posts
+- **Delete**: Click "Delete" on your own posts (with confirmation)
+
+### Search and Filtering
+
+- Use the search bar in the navigation to search posts
+- Click on any tag to filter posts by that tag
+- Searches work across titles, content, and tags
+
+## Admin Panel
+
+Access the admin panel at `/admin/` to:
+- Manage users and profiles
+- Moderate posts and comments
+- View site statistics
+- Manage tags
+
+## Configuration
+
+### Important Settings (blog_project/settings.py)
+
+```python
+# Media files (uploads)
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Login/Logout redirects
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
+
+# Email configuration (for production)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@gmail.com'
+EMAIL_HOST_PASSWORD = 'your-app-password'
+```
+
+## Deployment Checklist
+
+Before deploying to production:
+
+1. **Security Settings**
+   ```python
+   DEBUG = False
+   ALLOWED_HOSTS = ['yourdomain.com']
+   SECRET_KEY = 'your-production-secret-key'
+   ```
+
+2. **Static Files**
+   ```bash
+   python manage.py collectstatic
+   ```
+
+3. **Database**
+   - Switch from SQLite to PostgreSQL or MySQL
+   - Update DATABASE settings in settings.py
+
+4. **Environment Variables**
+   - Store sensitive data in environment variables
+   - Use python-decouple or django-environ
+
+5. **HTTPS**
+   - Set up SSL certificate
+   - Configure SECURE_SSL_REDIRECT = True
+
+## Customization
+
+### Changing Colors/Theme
+
+Edit `templates/base.html` and modify the Bootstrap classes or add custom CSS.
+
+### Adding New Features
+
+1. Create new views in `blog/views.py` or `accounts/views.py`
+2. Add URL patterns in respective `urls.py`
+3. Create templates in appropriate template directories
+4. Update models if database changes are needed
+
+## Troubleshooting
+
+### Images not displaying
+- Ensure `MEDIA_URL` and `MEDIA_ROOT` are set correctly
+- Check that media files are being served in development
+
+### Markdown not rendering
+- Verify django-markdownx is installed
+- Check that `{{ post.content|markdownify }}` is used in templates
+
+### Permission denied errors
+- Ensure media directory has write permissions
+- Check user authentication for protected views
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Support
+
+For issues, questions, or suggestions:
+- Create an issue in the repository
+- Check Django documentation: https://docs.djangoproject.com/
+
+## Credits
+
+Built with:
+- Django Framework
+- Bootstrap 5
+- django-markdownx
+- django-taggit
+- django-crispy-forms
