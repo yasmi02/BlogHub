@@ -28,6 +28,8 @@ A modern, feature-rich blogging platform built with Django and Bootstrap. Write 
 
 #  Screenshots
 
+<img width="1274" height="724" alt="Ekran Resmi 2025-11-07 16 33 23" src="https://github.com/user-attachments/assets/70a7a693-41c7-45a8-b969-dc924a2277a5" />
+
 <img width="1227" height="742" alt="Ekran Resmi 2025-11-07 16 10 35" src="https://github.com/user-attachments/assets/c675b235-01b1-4865-a745-41e2cd4fb566" />
 
 <img width="1227" height="742" alt="Ekran Resmi 2025-11-07 16 10 45" src="https://github.com/user-attachments/assets/ef2f9197-e455-428f-b83a-3bfdb064bb74" />
